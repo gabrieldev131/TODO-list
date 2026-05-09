@@ -1,50 +1,74 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 1.1.0 → 1.2.0
+- Added principles:
+  - VI. Simple & Clear UX/Routing (Mandates clear routing and intuitive UI)
+- Modified principles:
+  - V. Tech Stack Integrity (Minor wording refinement)
+- Added sections: None
+- Removed sections: None
+- Templates requiring updates:
+  - plan-template.md ✅ (Verified)
+  - spec-template.md ✅ (Verified)
+  - tasks-template.md ✅ (Verified)
+- Follow-up TODOs:
+  - Update specification (spec.md) to include Reminders logic.
+  - Update implementation plan (plan.md) for Reminder scheduling.
+  - Regenerate tasks (tasks.md) to include Reminder-specific sub-tasks.
+-->
+
+# TODO-list Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. SOLID & Object Calisthenics (NON-NEGOTIABLE)
+All code must adhere to SOLID principles. The Backend (C#) must strictly follow Object Calisthenics rules: 
+- One level of indentation per method.
+- No 'else' keyword.
+- Wrap all primitives and strings.
+- One dot per line.
+- Don't abbreviate.
+- Keep entities small (50 lines per class, 10 lines per method).
+- No classes with more than two instance variables.
+- No getters/setters/properties (favor behavior).
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. MVC Pattern Separation
+The application must maintain a strict Model-View-Controller architecture. 
+- **Model**: Domain logic and state management (including Tasks and Reminders), decoupled from external dependencies.
+- **View**: React-based UI components focusing on presentation and user interaction.
+- **Controller**: Orchestration layer (ASP.NET Controllers / React Hooks/Services) that bridges View and Model.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Testing Discipline (NON-NEGOTIABLE)
+Every feature MUST include corresponding tests. For the C# backend, unit tests must verify domain 
+logic behavior. For the React frontend, component and hook tests are required. 
+Bug fixes must be preceded by a failing reproduction test.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Persistence-less Domain Logic
+No external database shall be used. Data persistence is managed in-memory or via simple file storage. 
+The Domain Model must be entirely ignorant of the storage mechanism, communicating only through 
+well-defined repository interfaces.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Tech Stack Integrity (C#/.NET & React)
+- **Backend**: MUST use C# and the .NET framework.
+- **Frontend**: MUST use JavaScript and the React framework.
+Changes must respect the idiomatic patterns of these ecosystems (e.g., LINQ for C#, Hooks for React).
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Simple & Clear UX/Routing
+- **Routing**: API and Frontend routes must be clear, predictable, and simple.
+- **User Interface**: The frontend must be designed for simplicity. Users should encounter zero 
+friction when registering, removing, or setting reminders for tasks. Clarity precedes complexity.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Additional Constraints
+- **Conventions & Style**: Rigorously adhere to existing workspace conventions. Use Prettier/ESLint for React and dotnet-format for C#.
+- **Composition over Inheritance**: Prefer explicit composition and delegation to maintain modularity.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+- **Iterative Cycle**: Research -> Strategy -> Execution (Plan -> Act -> Validate).
+- **Validation Path**: Every change must be validated via automated tests and manual verification of the MVC contract and UX simplicity.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+The Constitution supersedes all other practices. Amendments require documentation and a MINOR 
+version bump for principle expansion. All PRs must verify compliance with SOLID, Object 
+Calisthenics, and UX simplicity.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.2.0 | **Ratified**: 2026-05-09 | **Last Amended**: 2026-05-09

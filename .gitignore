@@ -1,0 +1,34 @@
+# .gitignore for TODO-list (C#/.NET + React)
+
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# C# / .NET
+bin/
+obj/
+*.user
+*.suo
+packages/
+*.sln.ids
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Node.js / React
+node_modules/
+dist/
+build/
+*.log
+.env*
+coverage/
+.npm
+.eslintcache
+
+# Spec Kit
+.specify/feature.json

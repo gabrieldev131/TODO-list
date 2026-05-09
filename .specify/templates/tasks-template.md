@@ -62,10 +62,10 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
+- [ ] T004 Setup in-memory repository/storage layer (No DB per Constitution)
+- [ ] T005 [P] Implement base MVC Controllers (.NET) and Service Hooks (React)
+- [ ] T006 [P] Configure SOLID and Object Calisthenics linting (dotnet-format, ESLint)
+- [ ] T007 Create domain entities following Object Calisthenics rules
 - [ ] T008 Configure error handling and logging infrastructure
 - [ ] T009 Setup environment configuration management
 
