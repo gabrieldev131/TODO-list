@@ -1,17 +1,14 @@
-# Welcome to MkDocs
+# Sistema de Tarefas e Processamento (TODO-List)
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Bem-vindo à documentação oficial do motor de processamento em background.
+Este projeto foi desenvolvido como um modelo arquitetural, com foco na estabilidade técnica e na criação de um fluxo de trabalho claro para delegação de tarefas.
 
-## Commands
+## Sobre a Arquitetura
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Ao contrário de listas de tarefas tradicionais baseadas em CRUD, este sistema é alimentado por eventos assíncronos. As tarefas são mapeadas através de dependências lógicas e processadas por workers configurados para a nossa região (America/Sao_Paulo).
 
-## Project layout
+Utilize o menu lateral para consultar:
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* **A Constituição do Projeto:** Regras de negócio e governança.
+* **Especificações:** O design técnico de cada módulo.
+* **Logs de Reuniões 1-on-1:** Diretrizes de tutoria.

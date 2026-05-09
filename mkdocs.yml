@@ -8,6 +8,9 @@ theme:
 
 nav:
   - Início: index.md
-  - Arquitetura: arquitetura.md
-  - Workers: workers.md
-  - API: api.md
+  - constitution: constitution.md
+  - checklist-template: templates/checklist-template.md
+  - constitution-template: templates/constitution-template.md
+  - plan-template: templates/plan-template.md
+  - spec-template: templates/spec-template.md
+  - tasks-template: templates/tasks-template.md
