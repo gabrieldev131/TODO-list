@@ -9,8 +9,8 @@ theme:
 nav:
   - Início: index.md
   - constitution: constitution.md
-  - checklist-template: templates/checklist-template.md
-  - constitution-template: templates/constitution-template.md
-  - plan-template: templates/plan-template.md
-  - spec-template: templates/spec-template.md
-  - tasks-template: templates/tasks-template.md
+  - checklist: models/checklist.md
+  - constitution-template: models/constitution-template.md
+  - plan-template: models/plan-template.md
+  - spec-template: models/spec-template.md
+  - tasks-template: models/tasks-template.md
