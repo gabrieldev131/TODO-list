@@ -1,4 +1,6 @@
-site_name: Documentação do Motor de Tarefas
+site_name: Documentação da TODO-list
+site_url: https://gabrieldev131.github.io/TODO-list/
+
 theme:
   name: material
   palette:
@@ -6,6 +8,6 @@ theme:
 
 nav:
   - Início: index.md
-  - Arquitetura de Eventos: arquitetura.md
-  - Motor de Background: workers.md
-  - API Reference: api.md
+  - Arquitetura: arquitetura.md
+  - Workers: workers.md
+  - API: api.md
