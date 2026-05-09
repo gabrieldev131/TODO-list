@@ -1,0 +1,11 @@
+site_name: Documentação do Motor de Tarefas
+theme:
+  name: material
+  palette:
+    primary: indigo
+
+nav:
+  - Início: index.md
+  - Arquitetura de Eventos: arquitetura.md
+  - Motor de Background: workers.md
+  - API Reference: api.md
