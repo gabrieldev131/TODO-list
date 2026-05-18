@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/constitution/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/models/checklist/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/models/constitution-template/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/models/plan-template/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/models/spec-template/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://gabrieldev131.github.io/TODO-list/models/tasks-template/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+</urlset>
