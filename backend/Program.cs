@@ -57,6 +57,8 @@ app.MapGet("/", () => new {
     Mensagem = "O worker está processando a fila em background."
 });
 
+
+
 app.Run();
 
 public partial class Program { }

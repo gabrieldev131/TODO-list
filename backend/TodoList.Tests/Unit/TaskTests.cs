@@ -1,6 +1,4 @@
-using System;
 using TodoList.Api.Domain.Entities;
-using Xunit;
 
 namespace TodoList.Tests.Unit
 {
@@ -18,8 +16,8 @@ namespace TodoList.Tests.Unit
         public void Task_ShouldReportCorrectIdentifier()
         {
             // Arrange
-            var rawId = Guid.NewGuid();
-            var id = new TaskIdentifier(rawId);
+            Guid rawId = Guid.NewGuid();
+            TaskIdentifier id = new TaskIdentifier(rawId);
             var task = CreateDefaultTask(id);
 
             // Act & Assert
@@ -47,22 +45,19 @@ namespace TodoList.Tests.Unit
         }
 
         // Helper methods to keep tests clean and readable (Object Calisthenics: one level of indentation).
-        private Task CreateDefaultTask(TaskIdentifier id)
-        {
-            return CreateTaskWith("Test", "Low", id);
-        }
+        private Task CreateDefaultTask(TaskIdentifier id) => CreateTaskWith("Test", "Low", id);
 
         private Task CreateTaskWith(string title, string priority, TaskIdentifier? id = null)
         {
             var taskId = id ?? new TaskIdentifier(Guid.NewGuid());
-            
+
             // Complex nested structure construction to satisfy the 2-variable rule in domain entities.
-            var content = new TaskContent(new TaskTitle(title), new TaskDescription("Desc"));
+            TaskContent content = new TaskContent(new TaskTitle(title), new TaskDescription("Desc"));
             var status = new TaskStatus(new TaskPriority(priority), new TaskCompletion(false));
-            var details = new TaskDetails(content, status);
-            var lifeCycle = new TaskLifeCycle(details, new TaskReminder(null));
-            var aggregate = new TaskAggregate(lifeCycle, new TaskTags(new List<TaskTag>()));
-            
+            TaskDetails details = new TaskDetails(content, status);
+            TaskLifeCycle lifeCycle = new TaskLifeCycle(details, new TaskReminder(null));
+            TaskAggregate aggregate = new TaskAggregate(lifeCycle, new TaskTags([]));
+
             return new Task(taskId, aggregate);
         }
     }

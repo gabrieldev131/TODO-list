@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 /**
  * TaskRegistrationForm Component.
@@ -29,7 +29,7 @@ export const TaskRegistrationForm = ({ onAdd }) => {
             setDescription('');
             setTagsInput('');
             setReminderAt('');
-        } catch (err) {
+        } catch {
             alert('Error adding task');
         }
     };

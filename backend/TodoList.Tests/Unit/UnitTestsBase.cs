@@ -12,9 +12,6 @@ namespace TodoList.Tests.Unit
     public abstract class UnitTestsBase
     {
         // Helper to create mocks consistently using NSubstitute.
-        protected T CreateMock<T>() where T : class
-        {
-            return Substitute.For<T>();
-        }
+        protected T CreateMock<T>() where T : class => Substitute.For<T>();
     }
 }

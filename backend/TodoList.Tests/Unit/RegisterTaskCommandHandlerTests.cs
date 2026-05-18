@@ -1,11 +1,8 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using NSubstitute;
 using TodoList.Api.Domain.Commands;
 using TodoList.Api.Domain.Entities;
 using TodoList.Api.Domain.Factories;
 using TodoList.Api.Domain.Interfaces;
-using Xunit;
 using Task = System.Threading.Tasks.Task;
 
 namespace TodoList.Tests.Unit
@@ -35,16 +32,16 @@ namespace TodoList.Tests.Unit
         public async Task HandleAsync_ShouldInvokeFactoryAndRepository()
         {
             // Arrange
-            var command = new RegisterTaskCommand(
-                "Learn NSubstitute", 
-                "Write tests for the 1-on-1", 
-                "High", 
-                new List<string> { "testing", "study" }, 
+            RegisterTaskCommand command = new RegisterTaskCommand(
+                "Learn NSubstitute",
+                "Write tests for the 1-on-1",
+                "High",
+                ["testing", "study"],
                 null);
 
             // Mock the factory to return a task instance (we don't care about the details here)
             var dummyTask = CreateMockTask();
-            _factory.Create(command.Title, command.Description, command.Priority, command.Tags, command.ReminderAt)
+            _ = _factory.Create(command.Title, command.Description, command.Priority, command.Tags, command.ReminderAt)
                     .Returns(dummyTask);
 
             // Act
@@ -56,22 +53,20 @@ namespace TodoList.Tests.Unit
             Assert.Same(dummyTask, result);
         }
 
-        private TodoList.Api.Domain.Entities.Task CreateMockTask()
-        {
+        private Api.Domain.Entities.Task CreateMockTask() =>
             // We use a mock here as well to satisfy the return type without building the full aggregate.
-            return Substitute.For<TodoList.Api.Domain.Entities.Task>(
-                new TaskIdentifier(Guid.NewGuid()), 
+            Substitute.For<Api.Domain.Entities.Task>(
+                new TaskIdentifier(Guid.NewGuid()),
                 Substitute.For<TaskAggregate>(
                     Substitute.For<TaskLifeCycle>(
                         Substitute.For<TaskDetails>(
                             Substitute.For<TaskContent>(new TaskTitle("T"), new TaskDescription("D")),
-                            Substitute.For<TodoList.Api.Domain.Entities.TaskStatus>(new TaskPriority("L"), new TaskCompletion(false))
+                            Substitute.For<Api.Domain.Entities.TaskStatus>(new TaskPriority("L"), new TaskCompletion(false))
                         ),
                         new TaskReminder(null)
                     ),
-                    new TaskTags(new List<TaskTag>())
+                    new TaskTags([])
                 )
             );
-        }
     }
 }

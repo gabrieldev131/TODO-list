@@ -6,9 +6,13 @@
  * SOLID: Single Responsibility Principle. 
  * By encapsulating the fetch logic here, we make it easier to add global 
  * configurations like base URLs, headers, or error handling in one place.
+ * 
+ * Environment Configuration:
+ * We use Vite's 'import.meta.env' to decouple the API address from the source code.
+ * This allows us to point to different backends (staging, production) without changes.
  */
 
-const BASE_URL = 'http://localhost:5115/api'; // Match backend port in launchSettings.json
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5115/api';
 
 export const apiClient = {
     /**

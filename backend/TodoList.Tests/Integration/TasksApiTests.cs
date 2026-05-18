@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -19,12 +18,8 @@ namespace TodoList.Tests.Integration
     /// 3. Verifies Dependency Injection: Ensures the real handlers and repository are wired up.
     /// 4. Enforces Principle VII: Every call is checked against the 500ms SLA.
     /// </summary>
-    public class TasksApiTests : TestBase
+    public class TasksApiTests(WebApplicationFactory<Program> factory) : TestBase(factory)
     {
-        public TasksApiTests(WebApplicationFactory<Program> factory) : base(factory)
-        {
-        }
-
         [Fact]
         [Trait("Category", "Integration")]
         public async Task GetAll_ShouldReturnOk_AndBeFast()
@@ -44,15 +39,15 @@ namespace TodoList.Tests.Integration
         public async Task Create_ShouldReturnCreated_AndBeFast()
         {
             // Arrange
-            var command = new RegisterTaskCommand(
-                "Integration Test Task", 
-                "Description", 
-                "Medium", 
-                new List<string> { "integration" }, 
+            RegisterTaskCommand command = new RegisterTaskCommand(
+                "Integration Test Task",
+                "Description",
+                "Medium",
+                ["integration"],
                 null);
 
             // Act
-            var response = await SendRequestWithSlaCheck(client => 
+            var response = await SendRequestWithSlaCheck(client =>
                 client.PostAsJsonAsync("/api/tasks", command));
 
             // Assert
@@ -67,12 +62,12 @@ namespace TodoList.Tests.Integration
         public async Task Delete_ShouldReturnNoContent_AndBeFast()
         {
             // Arrange: First create a task to delete
-            var createResponse = await Client.PostAsJsonAsync("/api/tasks", 
-                new RegisterTaskCommand("Delete Me", "Desc", "Low", new List<string>(), null));
+            var createResponse = await Client.PostAsJsonAsync("/api/tasks",
+                new RegisterTaskCommand("Delete Me", "Desc", "Low", [], null));
             var task = await createResponse.Content.ReadFromJsonAsync<TaskDataTransferObject>();
 
             // Act
-            var response = await SendRequestWithSlaCheck(client => 
+            var response = await SendRequestWithSlaCheck(client =>
                 client.DeleteAsync($"/api/tasks/{task!.Id}"));
 
             // Assert
@@ -86,18 +81,18 @@ namespace TodoList.Tests.Integration
             // This test is a "meta-test" to verify that our SLA assertion actually works.
             // Since we can't easily add a delay to the real API without changing code,
             // we manually simulate a slow call.
-            
-            var stopwatch = new System.Diagnostics.Stopwatch();
+
+            Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            
+
             // Simulate a 600ms delay.
             await Task.Delay(600);
-            
+
             stopwatch.Stop();
             var elapsed = stopwatch.ElapsedMilliseconds;
 
             // Rationale: Demonstrate to the user that 500ms is a hard limit.
-            Assert.Throws<Xunit.Sdk.TrueException>(() => 
+            _ = Assert.Throws<Xunit.Sdk.TrueException>(() =>
                 Assert.True(elapsed <= 500, $"Artificial SLA Failure: {elapsed}ms > 500ms"));
         }
     }

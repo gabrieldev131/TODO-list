@@ -20,14 +20,14 @@ description: "Task list for Detailed API Testing implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 [P] Create directory `backend/TodoList.Tests/` for the new test project
-- [ ] T002 Create `backend/TodoList.Tests/TodoList.Tests.csproj` with xUnit and .NET 10.0 settings
-- [ ] T003 Add `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio` to `backend/TodoList.Tests/TodoList.Tests.csproj`
-- [ ] T004 Add `Microsoft.AspNetCore.Mvc.Testing` and `NSubstitute` to `backend/TodoList.Tests/TodoList.Tests.csproj`
-- [ ] T005 Add reference to `TodoList.Api.csproj` in `backend/TodoList.Tests/TodoList.Tests.csproj`
-- [ ] T006 Update `backend/TodoList.slnx` to include the `TodoList.Tests` project
-- [ ] T007 [P] Create directory `backend/TodoList.Tests/Unit/` for unit tests
-- [ ] T008 [P] Create directory `backend/TodoList.Tests/Integration/` for integration tests
+- [x] T001 [P] Create directory `backend/TodoList.Tests/` for the new test project
+- [x] T002 Create `backend/TodoList.Tests/TodoList.Tests.csproj` with xUnit and .NET 10.0 settings
+- [x] T003 Add `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio` to `backend/TodoList.Tests/TodoList.Tests.csproj`
+- [x] T004 Add `Microsoft.AspNetCore.Mvc.Testing` and `NSubstitute` to `backend/TodoList.Tests/TodoList.Tests.csproj`
+- [x] T005 Add reference to `TodoList.Api.csproj` in `backend/TodoList.Tests/TodoList.Tests.csproj`
+- [x] T006 Update `backend/TodoList.slnx` to include the `TodoList.Tests` project
+- [x] T007 [P] Create directory `backend/TodoList.Tests/Unit/` for unit tests
+- [x] T008 [P] Create directory `backend/TodoList.Tests/Integration/` for integration tests
 
 ---
 
@@ -35,10 +35,10 @@ description: "Task list for Detailed API Testing implementation"
 
 **Purpose**: Core infrastructure for Performance SLA and Mocking
 
-- [ ] T009 [P] Create `backend/TodoList.Tests/Integration/TestBase.cs` to hold shared API client logic
-- [ ] T010 Implement `WebApplicationFactory` setup in `backend/TodoList.Tests/Integration/TestBase.cs`
-- [ ] T011 Implement `AssertSLA` helper in `TestBase.cs` to measure and verify < 500ms latency
-- [ ] T012 [P] Create `backend/TodoList.Tests/Unit/UnitTestsBase.cs` for common unit test mocking utilities
+- [x] T009 [P] Create `backend/TodoList.Tests/Integration/TestBase.cs` to hold shared API client logic
+- [x] T010 Implement `WebApplicationFactory` setup in `backend/TodoList.Tests/Integration/TestBase.cs`
+- [x] T011 Implement `AssertSLA` helper in `TestBase.cs` to measure and verify < 500ms latency
+- [x] T012 [P] Create `backend/TodoList.Tests/Unit/UnitTestsBase.cs` for common unit test mocking utilities
 
 ---
 
@@ -50,21 +50,21 @@ description: "Task list for Detailed API Testing implementation"
 
 ### Implementation for User Story 2 (Backend)
 
-- [ ] T013 [P] [US2] Create `backend/TodoList.Tests/Unit/TaskTests.cs` for `Task` entity validation
-- [ ] T014 [US2] Write unit test for `Task` title length validation in `TaskTests.cs`
-- [ ] T015 [US2] Write unit test for `Task` priority assignment logic in `TaskTests.cs`
-- [ ] T016 [P] [US2] Create `backend/TodoList.Tests/Unit/RegisterTaskCommandHandlerTests.cs`
-- [ ] T017 [US2] Mock `ITaskRepository` using `NSubstitute` in `RegisterTaskCommandHandlerTests.cs`
-- [ ] T018 [US2] Write test for successful task registration in `RegisterTaskCommandHandlerTests.cs`
-- [ ] T019 [US2] Write test for task registration failure (e.g., null command) in `RegisterTaskCommandHandlerTests.cs`
+- [x] T013 [P] [US2] Create `backend/TodoList.Tests/Unit/TaskTests.cs` for `Task` entity validation
+- [x] T014 [US2] Write unit test for `Task` title length validation in `TaskTests.cs`
+- [x] T015 [US2] Write unit test for `Task` priority assignment logic in `TaskTests.cs`
+- [x] T016 [P] [US2] Create `backend/TodoList.Tests/Unit/RegisterTaskCommandHandlerTests.cs`
+- [x] T017 [US2] Mock `ITaskRepository` using `NSubstitute` in `RegisterTaskCommandHandlerTests.cs`
+- [x] T018 [US2] Write test for successful task registration in `RegisterTaskCommandHandlerTests.cs`
+- [x] T019 [US2] Write test for task registration failure (e.g., null command) in `RegisterTaskCommandHandlerTests.cs`
 
 ### Implementation for User Story 2 (Frontend)
 
-- [ ] T020 [P] [US2] Create `frontend/src/components/__tests__/TaskItem.test.jsx`
-- [ ] T021 [US2] Write Vitest test for rendering task title in `TaskItem.test.jsx`
-- [ ] T022 [US2] Write Vitest test for checkbox interaction in `TaskItem.test.jsx`
-- [ ] T023 [P] [US2] Create `frontend/src/hooks/__tests__/useTasks.test.js`
-- [ ] T024 [US2] Mock `apiClient` in `useTasks.test.js` to verify task fetching logic
+- [x] T020 [P] [US2] Create `frontend/src/components/__tests__/TaskItem.test.jsx`
+- [x] T021 [US2] Write Vitest test for rendering task title in `TaskItem.test.jsx`
+- [x] T022 [US2] Write Vitest test for checkbox interaction in `TaskItem.test.jsx`
+- [x] T023 [P] [US2] Create `frontend/src/hooks/__tests__/useTasks.test.js`
+- [x] T024 [US2] Mock `apiClient` in `useTasks.test.js` to verify task fetching logic
 
 ---
 
@@ -76,23 +76,24 @@ description: "Task list for Detailed API Testing implementation"
 
 ### Implementation for User Story 1 (Backend)
 
-- [ ] T025 [P] [US1] Create `backend/TodoList.Tests/Integration/TasksApiTests.cs` inheriting from `TestBase.cs`
-- [ ] T026 [US1] Implement `GetAll_ReturnsOk_AndUnderSLA` test for `GET /api/tasks` in `TasksApiTests.cs`
-- [ ] T027 [US1] Implement `Create_ReturnsCreated_AndUnderSLA` test for `POST /api/tasks` in `TasksApiTests.cs`
-- [ ] T028 [US1] Implement `Delete_ReturnsNoContent_AndUnderSLA` test for `DELETE /api/tasks/{id}` in `TasksApiTests.cs`
-- [ ] T029 [US1] Add `[Trait("Category", "Integration")]` to all tests in `TasksApiTests.cs`
-- [ ] T030 [US1] Verify that `AssertSLA` fails the test if an artificial delay of 600ms is added to a test case
+- [x] T025 [P] [US1] Create `backend/TodoList.Tests/Integration/TasksApiTests.cs` inheriting from `TestBase.cs`
+- [x] T026 [US1] Implement `GetAll_ReturnsOk_AndUnderSLA` test for `GET /api/tasks` in `TasksApiTests.cs`
+- [x] T027 [US1] Implement `Create_ReturnsCreated_AndUnderSLA` test for `POST /api/tasks` in `TasksApiTests.cs`
+- [x] T028 [US1] Implement `Delete_ReturnsNoContent_AndUnderSLA` test for `DELETE /api/tasks/{id}` in `TasksApiTests.cs`
+- [x] T029 [US1] Add `[Trait("Category", "Integration")]` to all tests in `TasksApiTests.cs`
+- [x] T030 [US1] Verify that `AssertSLA` fails the test if an artificial delay of 600ms is added to a test case
 
 ---
 
+---
 ## Phase N: Polish & Cross-Cutting Concerns
 
 **Purpose**: Documentation and CI integration
 
-- [ ] T031 [P] Update `specs/003-detailed-api-testing/quickstart.md` with final command examples
-- [ ] T032 Verify all tests follow "One dot per line" and other Object Calisthenics where applicable
-- [ ] T033 Run `dotnet format` on `backend/TodoList.Tests/`
-- [ ] T034 Run `npm run lint` in `frontend/`
+- [x] T031 [P] Update `specs/003-detailed-api-testing/quickstart.md` with final command examples
+- [x] T032 Verify all tests follow "One dot per line" and other Object Calisthenics where applicable
+- [x] T033 Run `dotnet format` on `backend/TodoList.Tests/`
+- [x] T034 Run `npm run lint` in `frontend/`
 
 ---
 

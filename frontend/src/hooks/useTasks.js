@@ -36,7 +36,7 @@ export const useTasks = () => {
      */
     const addTask = async (title, description, priority, tags, reminderAt) => {
         try {
-            const newTask = await apiClient.createTask({ title, description, priority, tags, reminderAt });
+            await apiClient.createTask({ title, description, priority, tags, reminderAt });
             // Re-fetch or update local state (re-fetching ensures sorting is maintained)
             await fetchTasks();
         } catch (err) {
@@ -60,7 +60,10 @@ export const useTasks = () => {
 
     // Load tasks whenever sorting changes or on initial mount
     useEffect(() => {
-        fetchTasks();
+        const initialize = async () => {
+            await fetchTasks();
+        };
+        initialize();
     }, [fetchTasks]);
 
     return {
