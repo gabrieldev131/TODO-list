@@ -1,5 +1,5 @@
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read the current plan:
-[specs/002-todo-core-crud/plan.md](specs/002-todo-core-crud/plan.md)
+[specs/003-detailed-api-testing/plan.md](specs/003-detailed-api-testing/plan.md)
 <!-- SPECKIT END -->

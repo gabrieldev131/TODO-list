@@ -1,0 +1,28 @@
+# .dockerignore
+# Exclude build artifacts and sensitive files from the Docker context.
+
+# Source Control
+.git
+.gitignore
+
+# Project Documentation
+specs/
+docs/
+
+# IDE files
+.vscode/
+.idea/
+
+# Backend (C#)
+**/bin/
+**/obj/
+backend/TodoList.Tests/
+
+# Frontend (Node.js)
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Environment and Logs
+.env*
+*.log

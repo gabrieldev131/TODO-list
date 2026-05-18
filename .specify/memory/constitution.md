@@ -1,20 +1,17 @@
 <!--
 Sync Impact Report:
-- Version change: 1.1.0 → 1.2.0
+- Version change: 1.2.0 → 1.3.0
 - Added principles:
-  - VI. Simple & Clear UX/Routing (Mandates clear routing and intuitive UI)
+  - VII. Performance SLA (Mandates max 0.5s response time for all API/UI actions)
 - Modified principles:
-  - V. Tech Stack Integrity (Minor wording refinement)
+  - III. Testing Discipline (Expanded to mandate automated tests for all API endpoints)
 - Added sections: None
 - Removed sections: None
 - Templates requiring updates:
-  - plan-template.md ✅ (Verified)
-  - spec-template.md ✅ (Verified)
-  - tasks-template.md ✅ (Verified)
-- Follow-up TODOs:
-  - Update specification (spec.md) to include Reminders logic.
-  - Update implementation plan (plan.md) for Reminder scheduling.
-  - Regenerate tasks (tasks.md) to include Reminder-specific sub-tasks.
+  - plan-template.md ✅ updated
+  - spec-template.md ✅ updated
+  - tasks-template.md ✅ updated
+- Follow-up TODOs: None
 -->
 
 # TODO-list Constitution
@@ -40,8 +37,9 @@ The application must maintain a strict Model-View-Controller architecture.
 
 ### III. Testing Discipline (NON-NEGOTIABLE)
 Every feature MUST include corresponding tests. For the C# backend, unit tests must verify domain 
-logic behavior. For the React frontend, component and hook tests are required. 
-Bug fixes must be preceded by a failing reproduction test.
+logic behavior, and ALL API endpoints must be covered by automated tests (unit or integration). 
+For the React frontend, component and hook tests are required. Bug fixes must be preceded by a 
+failing reproduction test.
 
 ### IV. Persistence-less Domain Logic
 No external database shall be used. Data persistence is managed in-memory or via simple file storage. 
@@ -58,6 +56,11 @@ Changes must respect the idiomatic patterns of these ecosystems (e.g., LINQ for 
 - **User Interface**: The frontend must be designed for simplicity. Users should encounter zero 
 friction when registering, removing, or setting reminders for tasks. Clarity precedes complexity.
 
+### VII. Performance SLA (NON-NEGOTIABLE)
+The system must be highly responsive to ensure a smooth user experience. All API calls and UI 
+interactions MUST complete within a maximum of 0.5 seconds. This limit is a non-negotiable 
+constraint for all new features and optimizations.
+
 ## Additional Constraints
 - **Conventions & Style**: Rigorously adhere to existing workspace conventions. Use Prettier/ESLint for React and dotnet-format for C#.
 - **Composition over Inheritance**: Prefer explicit composition and delegation to maintain modularity.
@@ -69,6 +72,6 @@ friction when registering, removing, or setting reminders for tasks. Clarity pre
 ## Governance
 The Constitution supersedes all other practices. Amendments require documentation and a MINOR 
 version bump for principle expansion. All PRs must verify compliance with SOLID, Object 
-Calisthenics, and UX simplicity.
+Calisthenics, UX simplicity, and Performance SLA.
 
-**Version**: 1.2.0 | **Ratified**: 2026-05-09 | **Last Amended**: 2026-05-09
+**Version**: 1.3.0 | **Ratified**: 2026-05-09 | **Last Amended**: 2026-05-17
