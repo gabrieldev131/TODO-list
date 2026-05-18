@@ -31,7 +31,7 @@ builder.Services.AddTransient<TaskCommandHandlerBundle>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
-        policy => policy.WithOrigins("http://localhost:5173") // Vite default port
+        policy => policy.WithOrigins("https://todo-list-frontend-hc33.onrender.com") // Vite default port
                         .AllowAnyHeader()
                         .AllowAnyMethod());
 });
