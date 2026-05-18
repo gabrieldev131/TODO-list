@@ -49,16 +49,6 @@ app.UseCors("AllowReactApp");
 app.UseAuthorization();
 app.MapControllers();
 
-// Rota de diagnóstico para mostrar que o motor está rodando
-app.MapGet("/", () => new {
-    Status = "Online",
-    Servico = "Motor de Tarefas e Eventos",
-    FusoHorario = "America/Sao_Paulo",
-    Mensagem = "O worker está processando a fila em background."
-});
-
-
-
 app.Run();
 
 public partial class Program { }
